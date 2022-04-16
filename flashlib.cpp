@@ -5,7 +5,7 @@
  *  Updated on: Apr 16, 2022
  *      Author: asz
  */
-#include "spiflash.h"
+#include "flashlib.h"
 
 FLASHLIB::FLASHLIB(SPI_HandleTypeDef &bus, GPIO_TypeDef *GPIO_CS_PORT, uint16_t GPIO_CS_PIN){
 	__bus = &bus;
