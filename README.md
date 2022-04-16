@@ -68,22 +68,22 @@ Memories are identified by manufacturer id. This is actual list of supported mem
     
 There are all functions of library:
 
-		FLASH_StatusTypeDef init(void);
+		FLASH_StatusTypeDef init(void);		//Initialize flash memory
 
-		int getID(void);
-		int getChipID(void);
-		uint64_t getUniqID(void);
-		int getSectorCount(void);
-		int getSectorSize(void);
-		int getPageCount(void);
-		int getPageSize(void);
-		int getBlockCount(void);
-		int getBlockSize(void);
-		int getFlashSize(void);
+		int getID(void);			//get ID based on flash size
+		int getChipID(void);			//get chip ID - returns ID based on structure inside library
+		uint64_t getUniqID(void);		//returns unique ID of flash memory
+		int getSectorCount(void);		//returns number of sectors
+		int getSectorSize(void);		//returns sector size
+		int getPageCount(void);			//returns number of pages
+		int getPageSize(void);			//returns page size
+		int getBlockCount(void);		//returns number of blocks
+		int getBlockSize(void);			//returns block size
+		int getFlashSize(void);			//returns memory size in bytes
 
-		FLASH_StatusTypeDef eraseChip(void);
-		FLASH_StatusTypeDef eraseSector(uint32_t SectorAddr);
-		FLASH_StatusTypeDef eraseBlock(uint32_t BlockAddr);
+		FLASH_StatusTypeDef eraseChip(void);				//Full Chip Erase
+		FLASH_StatusTypeDef eraseSector(uint32_t SectorAddr);		//Erase 1 Sector
+		FLASH_StatusTypeDef eraseBlock(uint32_t BlockAddr);		//Erase 1 Block
 
 		uint32_t PageToSector(uint32_t PageAddress);
 		uint32_t PageToBlock(uint32_t PageAddress);
@@ -91,19 +91,40 @@ There are all functions of library:
 		uint32_t SectorToPage(uint32_t SectorAddress);
 		uint32_t BlockToPage(uint32_t BlockAddress);
 
+		//Check if page is empty - returns FLASH_EMPTY, FLASH_NOTEMPTY or FLASH_ERROR when error occurs.
 		FLASH_StatusTypeDef isEmptyPage(uint32_t Page_Address, uint32_t OffsetInByte, uint32_t NumByteToCheck_up_to_PageSize);
+		
+		//Check if sector is empty - returns FLASH_EMPTY, FLASH_NOTEMPTY or FLASH_ERROR when error occurs.
 		FLASH_StatusTypeDef isEmptySector(uint32_t Sector_Address, uint32_t OffsetInByte, uint32_t NumByteToCheck_up_to_SectorSize);
+		
+		//Check if block is empty - returns FLASH_EMPTY, FLASH_NOTEMPTY or FLASH_ERROR when error occurs.
 		FLASH_StatusTypeDef isEmptyBlock(uint32_t Block_Address, uint32_t OffsetInByte, uint32_t NumByteToCheck_up_to_BlockSize);
 
+		//Write single byte
 		FLASH_StatusTypeDef writeByte(uint8_t pBuffer, uint32_t Bytes_Address);
+		
+		//Write page from buffer at selected address. You can choose offset & number of bytes to write.
 		FLASH_StatusTypeDef writePage(uint8_t *pBuffer, uint32_t Page_Address, uint32_t OffsetInByte, uint32_t NumByteToWrite_up_to_PageSize);
+		
+		//Write sector from buffer at selected address. You can choose offset & number of bytes to write.
 		FLASH_StatusTypeDef writeSector(uint8_t *pBuffer, uint32_t Sector_Address, uint32_t OffsetInByte, uint32_t NumByteToWrite_up_to_SectorSize);
+		
+		//Write block from buffer at selected address. You can choose offset & number of bytes to write.
 		FLASH_StatusTypeDef writeBlock(uint8_t *pBuffer, uint32_t Block_Address, uint32_t OffsetInByte, uint32_t NumByteToWrite_up_to_BlockSize);
 
+		//Read 1 byte from memory.
 		FLASH_StatusTypeDef readByte(uint8_t *pBuffer, uint32_t Bytes_Address);
+		
+		//Read block of bytes to buffer. Can be more than block size.
 		FLASH_StatusTypeDef readBytes(uint8_t *pBuffer, uint32_t ReadAddr, uint32_t NumByteToRead);
+		
+		//Read page to buffer at selected address. You can choose offset & number of bytes to write.
 		FLASH_StatusTypeDef readPage(uint8_t *pBuffer, uint32_t Page_Address, uint32_t OffsetInByte, uint32_t NumByteToRead_up_to_PageSize);
+		
+		//Read sector to buffer at selected address. You can choose offset & number of bytes to write.
 		FLASH_StatusTypeDef readSector(uint8_t *pBuffer, uint32_t Sector_Address, uint32_t OffsetInByte, uint32_t NumByteToRead_up_to_SectorSize);
+		
+		//Read block to buffer at selected address. You can choose offset & number of bytes to write.
 		FLASH_StatusTypeDef readBlock(uint8_t *pBuffer, uint32_t Block_Address, uint32_t OffsetInByte, uint32_t NumByteToRead_up_to_BlockSize);
 
 They returns value or status. All possible returned statuses:
