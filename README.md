@@ -4,7 +4,7 @@ SPI flash memory library for STM32
 Hello. This is my first library for SPI Flash memories. Usage is pretty simple:
 
 Create a SPIFLASH object by:
-  FLASHLIB flash(flash_spi, MEM_CS_GPIO_Port, MEM_CS_Pin);
+	FLASHLIB flash(flash_spi, MEM_CS_GPIO_Port, MEM_CS_Pin);
 
 Memories are identified by manufacturer id. This is actual list of supported memories:
   Winbond:
@@ -65,6 +65,7 @@ Memories are identified by manufacturer id. This is actual list of supported mem
     GD25LQ40,
     
 There are all functions of library:
+
 		FLASH_StatusTypeDef init(void);
 
 		int getID(void);
@@ -104,6 +105,7 @@ There are all functions of library:
 		FLASH_StatusTypeDef readBlock(uint8_t *pBuffer, uint32_t Block_Address, uint32_t OffsetInByte, uint32_t NumByteToRead_up_to_BlockSize);
 
 They returns value or status. All possible returned statuses:
+
     FLASH_OK			= 0x00,
     FLASH_ERROR		= 0x01,
 
