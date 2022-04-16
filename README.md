@@ -108,10 +108,10 @@ There are all functions of library:
 
 They returns value or status. All possible returned statuses:
 
-    FLASH_OK			= 0x00,
+    FLASH_OK		= 0x00,
     FLASH_ERROR		= 0x01,
 
-    FLASH_LOCKED		= 0x02,
+    FLASH_LOCKED	= 0x02,
     FLASH_UNLOCKED	= 0x03,
 
     FLASH_EMPTY		= 0x04,
