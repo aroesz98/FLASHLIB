@@ -3,10 +3,12 @@ SPI flash memory library for STM32
 
 Hello. This is my first library for SPI Flash memories. Usage is pretty simple:
 
-Create a SPIFLASH object by:
+Create a FLASHLIB object by:
+
 	FLASHLIB flash(flash_spi, MEM_CS_GPIO_Port, MEM_CS_Pin);
 
 Memories are identified by manufacturer id. This is actual list of supported memories:
+
   Winbond:
     W25Q10,
     W25Q20,
