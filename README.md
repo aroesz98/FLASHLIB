@@ -10,63 +10,79 @@ Create a FLASHLIB object by:
 Memories are identified by manufacturer id. This is actual list of supported memories:
 
 	  Winbond:
-	    W25Q10,
-	    W25Q20,
-	    W25Q40,
-	    W25Q80,
-	    W25Q16,
-	    W25Q32,
-	    W25Q64,
-	    W25Q128,
-	    W25Q256,
-	    W25Q512,
+		W25Q10,
+		W25Q20,
+		W25Q40,
+		W25Q80,
+		W25Q16,
+		W25Q32,
+		W25Q64,
+		W25Q128,
+		W25Q256,
+		W25Q512,
 
 	  Spansion:
-	    S25FL032P,
-	    S25FL064P,
-	    S25FL064LS,
-	    S25FL128S,
-	    S25FL256S,
+		S25FL032P,
+		S25FL064P,
+		S25FL064LS,
+		S25FL128S,
+		S25FL256S,
 
 	  Micron:
-	    M45PE20,
-	    M45PE80,
-	    M45PE16,
-	    M25P32,
-	    MT25QX64,
-	    MT25QX128,
-	    MT25QX256,
-	    MT25QX512,
-	    MT25QX01,
-	    MT25QX02,
+		M45PE20,
+		M45PE80,
+		M45PE16,
+		M25P32,
+		MT25QX64,
+		MT25QX128,
+		MT25QX256,
+		MT25QX512,
+		MT25QX01,
+		MT25QX02,
 
 	  OnSemicoductor:
-	    LE25X20,
-	    LE25X40,
-	    LE25X81,
+		LE25X20,
+		LE25X40,
+		LE25X81,
 
 	  Adesto:
-	    AT45DB02,
-	    AT45DB04,
-	    AT45DB08,
-	    AT45DB16,
-	    AT45DB32,
-	    AT45DB64,
+		AT45DB02,
+		AT45DB04,
+		AT45DB08,
+		AT45DB16,
+		AT45DB32,
+		AT45DB64,
 
 	  ISSI:
-	    IS25LQ025,
-	    IS25LQ512,
-	    IS25LQ010,
-	    IS25LQ020,
-	    IS25LQ040,
+		IS25LQ025,
+		IS25LQ512,
+		IS25LQ010,
+		IS25LQ020,
+		IS25LQ040,
 
 	  GigaDevice:
-	    GD25LQ05,
-	    GD25LQ10,
-	    GD25LQ20,
-	    GD25LQ40,
-    
-There are all functions of library:
+		GD25LQ05,
+		GD25LQ10,
+		GD25LQ20,
+		GD25LQ40,
+	  Macronix:
+		MX25UVR20,
+		MX25UVR40,
+		MX25UVR80,
+		MX25UVR16,
+		MX25UVR32,
+		MX25UVR64,
+		MX25UVR128,
+	  Fudan Microelectroncis:
+		FM25Q02,
+		FM25Q04,
+		FM25Q08,
+		FM25Q16,
+		FM25Q32,
+		FM25Q64,
+		FM25Q128,
+		
+All functions of library:
 
 		FLASH_StatusTypeDef init(void);		//Initialize flash memory
 
