@@ -14,14 +14,14 @@
 
 typedef enum
 {
-  FLASH_OK			= 0x00,
-  FLASH_ERROR		= 0x01,
+	FLASH_OK		= 0x00,
+	FLASH_ERROR		= 0x01,
 
-  FLASH_LOCKED		= 0x02,
-  FLASH_UNLOCKED	= 0x03,
+	FLASH_LOCKED	= 0x02,
+	FLASH_UNLOCKED	= 0x03,
 
-  FLASH_EMPTY		= 0x04,
-  FLASH_NOTEMPTY	= 0x05,
+	FLASH_EMPTY		= 0x04,
+	FLASH_NOTEMPTY	= 0x05,
 } FLASH_StatusTypeDef;
 
 typedef enum
@@ -33,6 +33,8 @@ typedef enum
 	Adesto		= 0x1F,
 	ISSI		= 0x9D,
 	GigaDevice	= 0xC8,
+	Macronix	= 0xC2,
+	FudanMicro	= 0xA1,
 } MFID_t;
 
 typedef enum
@@ -86,6 +88,22 @@ typedef enum
 	GD25LQ10,
 	GD25LQ20,
 	GD25LQ40,
+
+	MX25UVR20,
+	MX25UVR40,
+	MX25UVR80,
+	MX25UVR16,
+	MX25UVR32,
+	MX25UVR64,
+	MX25UVR128,
+
+	FM25Q02,
+	FM25Q04,
+	FM25Q08,
+	FM25Q16,
+	FM25Q32,
+	FM25Q64,
+	FM25Q128,
 } Chip_ID_t;
 
 class FLASHLIB {

@@ -353,6 +353,92 @@ FLASH_StatusTypeDef FLASHLIB::init(void)
 		}
 	}
 
+	else if(__MFID == Macronix) {
+		switch (__ID & 0x000000FF) {
+			case 0x18: // 	mx25uvr128
+				__CHIP_ID = MX25UVR128;
+				__BlkCnt = 256;
+			break;
+
+			case 0x17: // 	mx25uvr64
+				__CHIP_ID = MX25UVR64;
+				__BlkCnt = 128;
+			break;
+
+			case 0x16: // 	mx25uvr32
+				__CHIP_ID = MX25UVR32;
+				__BlkCnt = 64;
+			break;
+
+			case 0x15: // 	mx25uvr16
+				__CHIP_ID = MX25UVR16;
+				__BlkCnt = 32;
+			break;
+
+			case 0x14: // 	mx25uvr80
+				__CHIP_ID = MX25UVR80;
+				__BlkCnt = 16;
+			break;
+
+			case 0x13: // 	mx25uvr40
+				__CHIP_ID = MX25UVR40;
+				__BlkCnt = 8;
+			break;
+
+			case 0x12: // 	mx25uvr20
+				__CHIP_ID = MX25UVR20;
+				__BlkCnt = 4;
+			break;
+
+			default:
+				__Lock = 0;
+			return FLASH_ERROR;
+		}
+	}
+
+	else if(__MFID == FudanMicro) {
+		switch (__ID & 0x000000FF) {
+			case 0x18: // 	fm25q128
+				__CHIP_ID = FM25Q128;
+				__BlkCnt = 256;
+			break;
+
+			case 0x17: // 	fm25q64
+				__CHIP_ID = FM25Q64;
+				__BlkCnt = 128;
+			break;
+
+			case 0x16: // 	fm25q32
+				__CHIP_ID = FM25Q32;
+				__BlkCnt = 64;
+			break;
+
+			case 0x15: // 	fm25q16
+				__CHIP_ID = FM25Q16;
+				__BlkCnt = 32;
+			break;
+
+			case 0x14: // 	fm25q08
+				__CHIP_ID = FM25Q08;
+				__BlkCnt = 16;
+			break;
+
+			case 0x13: // 	fm25q04
+				__CHIP_ID = FM25Q04;
+				__BlkCnt = 8;
+			break;
+
+			case 0x12: // 	fm25q02
+				__CHIP_ID = FM25Q02;
+				__BlkCnt = 4;
+			break;
+
+			default:
+				__Lock = 0;
+			return FLASH_ERROR;
+		}
+	}
+
 	else if(__MFID == Winbond) {
 		switch (__ID & 0x000000FF) {
 			case 0x20: // 	w25q512
@@ -418,7 +504,8 @@ FLASH_StatusTypeDef FLASHLIB::init(void)
 	__BlkSiz = __SectSiz * 16;
 	__SizInKB = (__SectCnt * __SectSiz) / 1024;
 
-	if(((__ID & 0x00FF0000) >> 16) == Winbond) readUniqID();
+	uint32_t tmp_id = (__ID & 0x00FF0000) >> 16;
+	if(tmp_id == Winbond) readUniqID();
 
 	readStatusRegister(1);
 	readStatusRegister(2);
